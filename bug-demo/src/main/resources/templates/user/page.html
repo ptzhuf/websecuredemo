@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>用户列表</title>
+</head>
+<body>
+
+<table>
+    <div align="center" th:utext="${showMsg}"><span>欢迎</span></div>
+    <!-- http://192.168.5.20:8080/users?showMsg=%3Cscript%20language=%22JavaScript%22%3Ealert(2);%3C/script%3E -->
+    <div>
+        <form method="post" action="/users">
+
+            <div>用户名:<input name="username" autofocus/></div>
+            <div>密码:<input name="password"/></div>
+            <div>昵称:<input name="nickname" size="100"/></div>
+            <!-- <script src="http://192.168.5.20:8081/js/a.js"></script> haha-->
+            <div><input type="submit" th:value="新增" value="提交"/></div>
+        </form>
+    </div>
+    <hr/>
+
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>用户名</th>
+        <th>密码</th>
+        <th>昵称</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!--/*@thymesVar id="userList" type="List<org.hmzb.xss.user.User>"*/-->
+    <tr th:each="user : ${userList}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.username}"></td>
+        <td th:text="${user.password}"></td>
+        <td th:utext="${user.nickname}"></td>
+        <td><a href="#" th:onclick="${'deleteUser('+ user.id + ')'}">删除</a></td>
+    </tr>
+    </tbody>
+</table>
+<form action="/users/" method="post" id="delForm">
+    <input type="hidden" name="_method" value="DELETE">
+</form>
+<hr/>
+<div>
+    <div>修改个人信息:</div>
+    <form method="post" action="/users/">
+        <!--<input type="hidden" name="fixToken" th:value="${session.fixToken}">-->
+        <input type="hidden" name="_method" value="PUT">
+        <input type="hidden" name="id" th:value="${session.user.id}">
+        <input type="hidden" name="username" th:value="${session.user.username}">
+        <div>密码:<input type="text" name="password" th:value="${session.user.password}"></div>
+        <div>昵称:<input type="text" name="nickname" th:value="${session.user.nickname}"></div>
+        <div><input type="submit" value="修改"></div>
+    </form>
+</div>
+<script type="application/javascript">
+    var deleteUser = function (userId) {
+        var form = document.getElementById("delForm");
+        form.action = form.action + userId;
+        form.submit();
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+<div>url redirect 攻击→→→→→→点击登录&lt;兼客&gt;系统:<a
+        href="http://192.168.5.20:8080/login?url=http://192.168.5.20:8081/login">兼客系统</a></div>
+<div>反射性script攻击→→→→→→点击查看更多美女→<a href="http://192.168.5.20:8080/users?showMsg=<script>alert(1)</script>"><img
+        src="http://www.yn.xinhuanet.com/ent/2015-12/28/134957427_14512707793401n.jpg" width="20%"><img
+        src="http://file.rensheng2.com/2015/11/29/4de04015-d184-4cf1-ac41-c8c9dbffd7e8.jpg" width="20%"><img
+        src="http://www.yn.xinhuanet.com/ent/2015-12/28/134957427_14512707796261n.jpg" width="20%"></a></div>
+<hr/>
+<div>url redirect 攻击→→→→→→点击登录&lt;兼客&gt;系统:<a href="http://192.168.5.20:8080/login?url=http://192.168.5.20:8081/login">兼客系统</a>
+</div>
+<div>url redirect 攻击→→→→→→点击登录&lt;兼客&gt;系统:<a href="http://192.168.5.20:8080/login?url=http://192.168.5.20:8081/login">兼客系统</a>
+</div>
+<div>url redirect 攻击→→→→→→点击登录&lt;兼客&gt;系统:<a href="http://192.168.5.20:8080/login?url=http://192.168.5.20:8081/login">兼客系统</a>
+</div>
+<div><a href="/csrf">csrf 攻击→→→→→→csrf 攻击←←←←←←</a></div>
+</body>
+</html>
