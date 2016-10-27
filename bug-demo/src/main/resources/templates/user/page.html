@@ -8,14 +8,14 @@
 
 <table>
     <div align="center" th:utext="${showMsg}"><span>欢迎</span></div>
-    <!-- http://192.168.5.20:8080/users?showMsg=%3Cscript%20language=%22JavaScript%22%3Ealert(2);%3C/script%3E -->
+    <!-- http://bug.local:8080/users?showMsg=%3Cscript%20language=%22JavaScript%22%3Ealert(2);%3C/script%3E -->
     <div>
         <form method="post" action="/users">
 
             <div>用户名:<input name="username" autofocus/></div>
             <div>密码:<input name="password"/></div>
             <div>昵称:<input name="nickname" size="100"/></div>
-            <!-- <script src="http://192.168.5.20:8081/js/a.js"></script> haha-->
+            <!-- <script src="http://bug.local:8081/js/a.js"></script> haha-->
             <div><input type="submit" th:value="新增" value="提交"/></div>
         </form>
     </div>

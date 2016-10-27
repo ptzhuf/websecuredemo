@@ -42,7 +42,7 @@ public class AllController {
     @RequestMapping(value = "getUP", method = RequestMethod.POST)
     public String getUP(String username, String password) {
         csrfUserService.save(username, password);
-        return "redirect:http://192.168.5.20:8080/users";
+        return "redirect:http://bug.local:8080/users";
     }
 
     @RequestMapping("/")
